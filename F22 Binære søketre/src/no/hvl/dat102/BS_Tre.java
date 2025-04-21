@@ -26,13 +26,23 @@ implements SoeketreADT<T>{
 	
 	@Override
 	public boolean inneholder(T element) {
-		// Blir fylt inn på forelesning
-		return false;
+		return finn(element) != null;
 	}
 
 	@Override
 	public T finn(T element) {
-		// Blir fylt inn på forelesning
+		return finn(element, );
+	}
+	
+	@Override
+	private T finn(T element, BinaerTreNode<T> p) {
+		T svar = null;
+		
+		//basis p == nill -> tomt tre, element finnes ikke
+		
+		if (p != null) {
+			
+		}
 		return null;
 	}
 

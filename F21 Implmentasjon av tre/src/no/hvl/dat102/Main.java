@@ -28,7 +28,7 @@ public class Main {
 		 */
 		BinaerTre<Integer> t4 = new BinaerTre<>(11);
 		BinaerTre<Integer> t5 = new BinaerTre<>(17);
-		BinaerTre<Integer> t6 = new BinaerTre<>(15, t4, t5);
+		BinaerTre<Integer> t6 = new BinaerTre<>(15, t4, null);
 		
 		/*
 		   Lag eit tre med 0 som rot og t3 som venstre undertre og t6 som høgre undertre
@@ -50,5 +50,7 @@ public class Main {
 		for (Integer e : t7) {
 			System.out.print(e + " " );
 		}
+		
+		System.out.println("Antall på nivå 3: " + t7.getAntallPaaNivaa(3));
 	}
 }

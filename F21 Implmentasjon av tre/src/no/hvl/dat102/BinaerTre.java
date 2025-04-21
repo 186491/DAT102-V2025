@@ -27,14 +27,31 @@ public class BinaerTre<T> implements BinaerTreADT<T>, Iterable<T> {
 	}
 
 	private int getAntall(BinaerTreNode<T> t) {
-		// blir fylt inn på forelesning
-
-		return 0;
+		if (t == null) {
+			return 0;
+		}
+		int aV = getAntall(t.getVenstre());
+		int aH = getAntall(t.getHogre());
+		return 1 + aV + aH;
 	}
 	
 	@Override
 	public int getAntallPaaNivaa(int k) {
-		return 0;
+		return getAntallPaaNivaa(rot, k);
+	}
+	
+	private int getAntallPaaNivaa(BinaerTreNode<T> t, int k) {
+		if (t == null) {
+			return 0;
+		}
+		if (k == 1) {
+			return 1;
+		}
+		
+		int aV = getAntallPaaNivaa(t.getVenstre(), k - 1);
+		int aH = getAntallPaaNivaa(t.getHogre(), k - 1);
+		return aV + aH;
+		
 	}
 
 	@Override
@@ -99,7 +116,12 @@ public class BinaerTre<T> implements BinaerTreADT<T>, Iterable<T> {
 	}
 
 	private void visPostorden(BinaerTreNode<T> t) {
-		// blir fylt inn på forelesning
+		if (t == null) {
+		} else {
+			visPostorden(t.getVenstre());
+			visPostorden(t.getHogre());
+			System.out.print(t.getElement() + " ");
+		}
 	}
 
 	@Override
